@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  #banner.page-header
+    .row
+      .col-lg-6
+       //for correcting layout of page
+       //navbar covered text that it was over
+       p 
+       p
+       h1 Sign-up
+         p
+           small #{pageTitle}
+  .container(style='background-color:#000000; opacity:0.7; text-align:center;')
+    form(class='form-horizontal',action='/login',method='POST',id='loginForm')  
+      div.form-group
+        fieldset
+          legend #{legend}
+          input(type='text',id='username',name='username',placeholder='Username') 
+          p
+          input(type='email',id='email',name='email',placeholder='name@example.com')
+          p 
+          input(type='password',id='password',name='password',placeholder='Password') 
+          p
+          input(type='password',id='passwordConformation',name='passwordConformation',placeholder='Password Conformation')
+          p
+          input(class='submitBtn',type='submit', value="Sign Up") 

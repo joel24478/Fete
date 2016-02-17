@@ -1,4 +1,6 @@
 var express = require('express');
+var sassMiddleware = require('node-sass-middleware');
+//var sass = require('node-sass');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -21,7 +23,27 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+// adding the sass middleware
+//http://stackoverflow.com/questions/23711897/get-sass-to-autocompile-with-nodejs-express-and-node-sass/27345470#27345470
+app.use(
+    sassMiddleware({
+        src: __dirname + '/sass',
+        dest: __dirname + '/public/stylesheets',
+        prefix: '/stylesheets',
+        debug: true,
+    })
+);
+// app.use(
+//     sass.middleware({
+//         src: __dirname + '/sass',
+//         dest: __dirname + '/public/stylesheets',
+//         prefix: '/stylesheets',
+//         debug: true,
+//     })
+// );
+
 app.use(cookieParser());
+// The static middleware must come after the sass middleware
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
