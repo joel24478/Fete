@@ -6,3 +6,40 @@
 
 .navbar-default .navbar-nav > li > a {
   color: white; }
+
+.btn-default {
+  color: #660BAB;
+  border: 1px solid #660BAB; }
+
+.btn-default:hover,
+.btn-default:active,
+.btn-default.active,
+.btn:active,
+.btn.active:focus {
+  background-color: #660BAB;
+  border: 1px solid #FFFFFF; }
+
+a {
+  color: #660BAB; }
+
+.nav-tabs > li > a:hover {
+  color: #660BAB !important; }
+
+.btn-default:active:focus {
+  background-color: #660BAB; }
+
+.panel {
+  background-color: #F5F5F5; }
+
+#searchPanel {
+  margin: 100px 10px 10px 10px; }
+
+.topPageTitle {
+  margin-top: 60px;
+  margin-bottom: 10px; }
+
+#blackText {
+  color: #000000; }
+
+.input-group {
+  margin: 5px 0px 5px 0px; }

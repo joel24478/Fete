@@ -7,6 +7,16 @@ html
     link(rel='stylesheet', href='/bootstrap/css/grayscale.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/signup.css')
+    link(rel='stylesheet', href='/stylesheets/datepicker.css')
+    link(rel='stylesheet', href='/stylesheets/jquery-ui.css')
+    link(rel='stylesheet', href='/stylesheets/login.css')
+    link(rel='stylesheet', href='/stylesheets/profile.css')
+    script(src='/bootstrap/js/jquery.js')
+    script(src='/bootstrap/js/bootstrap.min.js')
+    script(src='/javascripts/tabsHandler.js')
+    script(src='/javascripts/jquery-ui.js')
+    script(src='/javascripts/dateHandler.js')
+    script(src='/javascripts/profile.js')
 
   body(background=background)
    .navbar.navbar-default.navbar-fixed-top
@@ -22,12 +32,12 @@ html
             li
               a(href='/about/') About
     
-    .container
-      block content
+   .container
+     block content
 
-      footer
+   block footer
+     footer
         .row
           .col-xs-12
             small &copy; Z'heondre Calcano, Joel Cruz 2016
-    script(src='/bootstrap/js/jquery.js')
-    script(src='/bootstrap/js/bootstrap.min.js')
+    

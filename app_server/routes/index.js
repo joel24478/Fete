@@ -8,9 +8,11 @@ var ctrlOthers = require('../controllers/others');
 //router.get('/', ctrlMain.index);
 
 /* Locations pages*/
-router.get('/', ctrlLocations.homeList);
-router.get('/location', ctrlLocations.locationInfo);
-router.get('/location/review/new', ctrlLocations.addReview);
+router.get('/', ctrlLocations.home);
+router.get('/login', ctrlLocations.login);
+router.get('/search', ctrlLocations.search);
+router.get('/profile', ctrlLocations.profile);
+//!!
 
 /* Other pages */
 router.get('/about', ctrlOthers.about);

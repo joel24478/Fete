@@ -10,3 +10,51 @@
 .navbar-default .navbar-nav>li>a {
     color: white;
 }
+
+.btn-default {
+    color: $primary-color;
+    border: 1px solid $primary-color;
+}
+
+.btn-default:hover,
+.btn-default:active,
+.btn-default.active,
+.btn:active,
+.btn.active:focus {
+    background-color: $primary-color;
+    border: 1px solid #FFFFFF;
+}
+
+a {
+    color: $primary-color;
+}
+
+.nav-tabs > li > a:hover {
+    color: $primary-color !important;
+}
+
+.btn-default:active:focus {
+    background-color: $primary-color;
+}
+
+.panel {
+    background-color: #F5F5F5;
+    //opacity: 0.84;
+}
+
+#searchPanel {
+    margin: 100px 10px 10px 10px;
+}
+
+.topPageTitle {
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+
+#blackText {
+    color: #000000;
+}
+
+.input-group {
+    margin: 5px 0px 5px 0px;
+}
