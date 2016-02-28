@@ -2,6 +2,7 @@ var mongoose = require( 'mongoose' )
 // create connection
 var gracefulShutdown;
 var dbURI = 'mongodb://localhost/Fete' ;
+
 mongoose.connect(dbURI); 
 mongoose.connection.on('connected', function () {
 console.log('Mongoose connected to ' + dbURI);

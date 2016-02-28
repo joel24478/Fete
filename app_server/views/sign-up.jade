@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  #banner.page-header
+    .row
+      .col-lg-6
+       h1.topPageTitle #{title}
+         p
+           h4 #{pageTitle}
+  .container
+    form(class='form-horizontal',action='/login',method='POST',id='loginForm')  
+      div.form-group
+        fieldset
+          legend 
+            h1 #{legend}
+          input(type='text',id='username',name='username',placeholder='Username') 
+          p
+          input(type='email',id='email',name='email',placeholder='name@example.com')
+          p 
+          input(type='password',id='password',name='password',placeholder='Password') 
+          p
+          input(type='password',id='passwordConformation',name='passwordConformation',placeholder='Password Conformation')
+          p
+          input(class='submitBtn',type='submit', value="Sign Up")
