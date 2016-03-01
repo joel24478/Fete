@@ -24,6 +24,10 @@
 .lightpurple {
   color: #9440D5; }
 
+.trendPicture {
+  width: 155px;
+  height: 77px; }
+
 /* -- The "User's Menu Container" specific elements. Custom container for the snippet -- */
 div.user-menu-container {
   z-index: 10;

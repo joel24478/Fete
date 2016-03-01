@@ -1,4 +1,6 @@
 @import "variables.scss";
+//source
+//http://bootsnipp.com/snippets/featured/flat-user-profile-interface-ui
 .square,
 .btn {
     border-radius: 0px!important;
@@ -35,6 +37,11 @@
 
 .lightpurple {
     color: $light-purple;
+}
+
+.trendPicture {
+    width: 155px;
+    height: 77px;
 }
 
 
