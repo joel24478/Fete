@@ -1,0 +1,24 @@
+.img-circle {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #660BAB;
+  margin-right: 10px; }
+
+.panel-textarea textarea {
+  width: 523px;
+  height: 115px; }
+
+@media (max-width: 767px) {
+  .panel-textarea textarea {
+    max-width: 280px;
+    max-height: 115px; } }
+
+@media (max-width: 767px) {
+  #map {
+    max-width: 310px;
+    max-height: 250px; } }
+
+#map {
+  width: 500px;
+  height: 320px;
+  margin: 0px 0px 0px 0px; }
