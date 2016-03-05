@@ -6,7 +6,7 @@ var router = express.Router();
 var ctrlSignup = require('../controllers/signup'); 
 var ctrlHome = require('../controllers/home'); 
 var ctrlProfile = require('../controllers/profile');
-var ctrlEvent = require('../controllers/event'); 
+//var ctrlEvent = require('../controllers/event'); 
 
 
 //Home
@@ -20,12 +20,12 @@ router.post('/:Eventid/comments', ctrlHome.createComment);
 router.put('/:Eventid/comments/:Commentid',ctrlHome.updateComment); 
 router.delete('/:Eventid/comments/:Commentid',ctrlHome.deleteComment);
 
-//Sign_in 
-router.get('/login', ctrlSignup.signup); 
+//Sign_up 
+router.get('/login', ctrlSignup.getUser); 
 router.post('/login', ctrlSignup.createUser);
 
 //Login
-router.get('/login', ctrlSignup.login);
+router.get('/login', ctrlSignup.getUser);
 
 //Event Detail 
 
