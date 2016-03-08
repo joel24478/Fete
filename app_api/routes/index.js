@@ -10,7 +10,7 @@ var ctrlProfile = require('../controllers/profile');
 //Home
 //get all events in range distance and time..
 //figure out how to include user's name into the path name
-router.get('/',ctrlHome.home);
+router.get('/',ctrlHome.home); //this will be changed to get world's events
 router.get('/:Userid/Event/:Eventid',ctrlHome.getEvent);
 router.post('/:Userid',ctrlHome.createEvent); 
 router.put('/:Userid/Event/:Eventid',ctrlHome.updateEvent);
@@ -30,7 +30,7 @@ router.get('/login', ctrlSignup.getUser);
 //Event Detail 
 
 //Profile
-router.get('/profile/:Userid',ctrlHome.home);
+router.get('/profile/:Userid',ctrlProfile.getMyEvents);
 router.post('/profile/:Userid',ctrlHome.createEvent); 
 router.put('/profile/:Userid/Event/:Eventid',ctrlHome.updateEvent);
 router.delete('/profile/:Userid/Event/:Eventid',ctrlHome.deleteEvent);

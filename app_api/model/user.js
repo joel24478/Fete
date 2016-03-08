@@ -13,6 +13,7 @@ coords: { type: [Number], index: '2dsphere'}
 });
 
 //add profile_pic, total attended, array of follower ids to the user schema
+//need current position
 var usersSchema = new Schema({ 
 name: {type: String, required: true}, 
 email: {type: String, required: true},

@@ -5,7 +5,68 @@ var sendJsonResponse = function(res, status, content) {
 res.status(status);
 res.json(content);
 };
+//Get all user's events 
+//Get a specific event
+module.exports.getMyEvents = function (req, res) { 
+// get user, then find the event
+if (req.params && req.params.Userid) {
+    Loc
+      .findById(req.params.Userid)
+      .select('Events')
+      .exec(
+        function(err, user) {
+          //console.log(user);
+          var response, event;
+          if (!user) {
+            sendJsonResponse(res, 404, {
+              "message": " User id not found"
+            });
+            return;
+          } else if (err) {
+            sendJsonResponse(res, 400, err);
+            return;
+          }
+          if (user.Events && user.Events.length > 0) {
+		  var response = []; 
+            /*event = user.Events.id(req.params.Eventid);
+            if (!event) {
+              sendJsonResponse(res, 404, {
+                "message": "Event id not found"
+              });
+            } else {*/
+			  user.Events.forEach( function(doc){
+			  response.push({//json object that will be returned
+                //event: {
+				  description: doc.Description,
+                  location: doc.Location,
+                  pictures: doc.Pictures, 
+                  going: doc.Going, 
+                  attended: doc.Attended, 
+                  date: doc.Date, 
+                  public: doc.Public, 
+                  coords: doc.coords,
+                  id: req.params.Eventid
+                //}
+				});
+                //review: review
+              });
+              sendJsonResponse(res, 200, response);
+            //}
+          } else {
+            sendJsonResponse(res, 404, {
+              "message": "No Events found"
+            });
+          }
+        }
+    );
+  } else {
+    sendJsonResponse(res, 404, {
+      "message": "Not found, Userid and Eventid are both required"
+    });
+  }
+};
 
+//Delete account
 module.exports.deleteUser = function(req, res) {
   var userid = req.params.Userid;
   if (userid) {

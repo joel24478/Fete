@@ -80,6 +80,7 @@ if (req.params && req.params.Userid && req.params.Eventid) {
             return;
           }
           if (user.Events && user.Events.length > 0) {
+		    console.log( user.Events); 
             event = user.Events.id(req.params.Eventid);
             if (!event) {
               sendJsonResponse(res, 404, {
