@@ -68,7 +68,7 @@ if (req.params && req.params.Userid && req.params.Eventid) {
       .select('Events')
       .exec(
         function(err, user) {
-          console.log(user);
+          //console.log(user);
           var response, event;
           if (!user) {
             sendJsonResponse(res, 404, {
@@ -140,18 +140,20 @@ module.exports.updateEvent = function (req, res) {
           sendJsonResponse(res, 400, err);
           return;
         }
-        if (user.events && user.events.length > 0) {
-          thisEvent = user.events.id(req.params.Eventid);
-          if (!thisReview) {
+        if (user.Events && user.Events.length > 0) {
+          thisEvent = user.Events.id(req.params.Eventid);
+          if (!thisEvent) {
             sendJsonResponse(res, 404, {
               "message": "Event id not found"
             });
           } else {
-            thisEvent.Description = req.body.author;
-            thisEvent.Location = req.body.rating;
-            thisEvent.Pictures = req.body.pictures;
-            thisEvent.Date = req.body.date;
-			thisEvent.Public = req.body.public;
+		    //console.log(thisEvent); 
+			console.log( req.body.Description)
+            thisEvent.Description = req.body.Description;
+            thisEvent.Location = req.body.Location;
+            thisEvent.Pictures = req.body.Pictures;
+            thisEvent.Date = req.body.Date;
+			thisEvent.Public = req.body.Public;
 			thisEvent.coords =  req.body.coords;
 			
 			user.save(function(err, user) {
@@ -193,13 +195,13 @@ if (!req.params.Userid || !req.params.Eventid) {
           sendJsonResponse(res, 400, err);
           return;
         }
-        if (user.events && user.events.length > 0) {
-          if (!user.events.id(req.params.Eventid)) {
+        if (user.Events && user.Events.length > 0) {
+          if (!user.Events.id(req.params.Eventid)) {
             sendJsonResponse(res, 404, {
               "message": "Eventid not found"
             });
           } else {
-            user.events.id(req.params.Eventid).remove();
+            user.Events.id(req.params.Eventid).remove();
             user.save(function(err) {
               if (err) {
                 sendJsonResponse(res, 404, err);

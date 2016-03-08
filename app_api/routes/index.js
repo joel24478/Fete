@@ -6,7 +6,6 @@ var router = express.Router();
 var ctrlSignup = require('../controllers/signup'); 
 var ctrlHome = require('../controllers/home'); 
 var ctrlProfile = require('../controllers/profile');
-//var ctrlEvent = require('../controllers/event'); 
 
 //Home
 //get all events in range distance and time..
@@ -32,8 +31,10 @@ router.get('/login', ctrlSignup.getUser);
 
 //Profile
 router.get('/profile/:Userid',ctrlHome.home);
-router.post('/profile',ctrlHome.createEvent); 
-router.put('/profile/:Eventid',ctrlHome.updateEvent);
-router.delete('/profile/:Eventid',ctrlHome.deleteEvent);
-
+router.post('/profile/:Userid',ctrlHome.createEvent); 
+router.put('/profile/:Userid/Event/:Eventid',ctrlHome.updateEvent);
+router.delete('/profile/:Userid/Event/:Eventid',ctrlHome.deleteEvent);
+router.put('/profile/:Userid',ctrlProfile.updateUser);
+router.delete('/profile/:Userid',ctrlProfile.deleteUser);
+//list all events from signed in user
 module.exports = router; 
