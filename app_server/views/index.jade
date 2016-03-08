@@ -1,9 +1,7 @@
-extend layout
-
-block append head 
-  link(rel='stylesheet', href='/stylesheets/index.css')
+extends layout
 
 block content
+<<<<<<< HEAD
   header.intro#intro(style='margin-top:50px;')
     .intro-body
       .container
@@ -65,3 +63,7 @@ block content
               span.network-name Google+
         a.btn.btn-circle-black.page-scroll(href='#intro')
               i.glyphicon.glyphicon-chevron-up
+=======
+  h1= title
+  p Welcome to #{title}
+>>>>>>> master

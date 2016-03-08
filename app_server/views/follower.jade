@@ -1,0 +1,31 @@
+extends layout
+
+block content
+ .container#post(style='margin-top:100px;')
+  #template
+    .row
+      .col-md-6
+        .panel.panel-default
+          .panel-heading
+            img.img-circle.pull-left(src='#{profilePicture}', alt='#{username}')
+            h3 #{username}
+            h5
+              span Shared #{sharing}
+              |  - 
+              span #{eventDate}
+          .panel-body
+            p
+              | #{eventDescription}
+          .panel-footer
+            button.btn.btn-default(type='button')
+              span.glyphicon.glyphicon-plus
+            button.btn.btn-default(type='button')
+              span.glyphicon.glyphicon-share-alt
+            .input-placeholder#blackText Add a comment...
+            div
+              .panel-textarea(rows='4')
+                textarea
+                button.btn.btn-success.disabled(type='submit') Post comment
+                button.btn.btn-default(type='reset') Cancel
+      .col-md-6
+        div#map
