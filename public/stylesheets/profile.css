@@ -33,7 +33,6 @@ div.user-menu-container {
   z-index: 10;
   background-color: #fff;
   margin-top: 20px;
-  margin-bottom: 40px;
   background-clip: padding-box;
   opacity: 0.97;
   filter: alpha(opacity=97);
