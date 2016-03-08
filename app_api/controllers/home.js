@@ -11,36 +11,37 @@ sendJsonResponse(res, 200, {"status" : "Welcome Home"});
 };
 // Create an event
 module.exports.createEvent = function (req, res) { 
- if (req.params.Eventid) {
+ if (req.params.Userid) {
     Loc
-      .findById(req.params.Eventid)
-      .select('reviews')
+      .findById(req.params.Userid)
+      .select('Events')
       .exec(
-        function(err, location) {
+        function(err, user) {
           if (err) {
             sendJsonResponse(res, 400, err);
           } else {
-            doAddReview(req, res, location);
+		    console.log(" got the userid")
+            doAddEvent(req, res, user);
           }
         }
     );
   } else {
     sendJsonResponse(res, 404, {
-      "message": "Not found, locationid required"
+      "message": "Not found, Userid required"
     });
   }
 };
 // Sub function for adding an event
 var doAddEvent = function(req, res, user) {
   if (!user) {
-    sendJsonResponse(res, 404, "locationid not found");
+    sendJsonResponse(res, 404, "Userid not found");
   } else {
-    user.events.push({
+    user.Events.push({
 	  Description: req.body.description,
 	  Location: req.body.location,
 	  Pictures: req.body.pictues,
-	  Going: req.body.going, 
-	  Attended: req.body.attended, 
+	  Going: 0, 
+	  Attended: 0, 
 	  Date: req.body.date, 
 	  Public: req.body.public, 
 	  coords: req.body.coords 
@@ -51,7 +52,7 @@ var doAddEvent = function(req, res, user) {
         sendJsonResponse(res, 400, err);
       } else {
         //updateAverageRating(user._id);
-        thisEvent = user.Events[user.Event.length - 1];
+        thisEvent = user.Events[user.Events.length - 1];
         sendJsonResponse(res, 201, thisEvent);
       }
     });
@@ -148,7 +149,7 @@ module.exports.updateEvent = function (req, res) {
           } else {
             thisEvent.Description = req.body.author;
             thisEvent.Location = req.body.rating;
-            thisEvent.Pictures = req.body.reviewText;
+            thisEvent.Pictures = req.body.pictures;
             thisEvent.Date = req.body.date;
 			thisEvent.Public = req.body.public;
 			thisEvent.coords =  req.body.coords;
