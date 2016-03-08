@@ -80,7 +80,7 @@ if (req.params && req.params.Userid && req.params.Eventid) {
             return;
           }
           if (user.Events && user.Events.length > 0) {
-            event = User.Events.id(req.params.Eventid);
+            event = user.Events.id(req.params.Eventid);
             if (!event) {
               sendJsonResponse(res, 404, {
                 "message": "Event id not found"
@@ -88,14 +88,14 @@ if (req.params && req.params.Userid && req.params.Eventid) {
             } else {
               response = {//json object that will be returned
                 event: {
-				  description: user.Descriptions,
-                  location: user.Location,
-                  pictures: user.Pictures, 
-                  going: user.Going, 
-                  attended: user.Attended, 
-                  date: user.Date, 
-                  public: user.Public, 
-                  coords: user.coords,
+				  description: event.Description,
+                  location: event.Location,
+                  pictures: event.Pictures, 
+                  going: event.Going, 
+                  attended: event.Attended, 
+                  date: event.Date, 
+                  public: event.Public, 
+                  coords: event.coords,
                   id: req.params.Eventid
                 },
                 //review: review
