@@ -9,15 +9,17 @@ var ctrlProfile = require('../controllers/profile');
 //var ctrlEvent = require('../controllers/event'); 
 
 //Home
+//get all events in range distance and time..
+//figure out how to include user's name into the path name
 router.get('/',ctrlHome.home);
-router.get('/:Eventid',ctrlHome.getEvent);
-router.post('/',ctrlHome.createEvent); 
-router.put('/:Eventid',ctrlHome.updateEvent);
-router.delete('/:Eventid',ctrlHome.deleteEvent);
-router.get('/:Eventid/comments/:Commentid',ctrlHome.getComment);
-router.post('/:Eventid/comments', ctrlHome.createComment);
-router.put('/:Eventid/comments/:Commentid',ctrlHome.updateComment); 
-router.delete('/:Eventid/comments/:Commentid',ctrlHome.deleteComment);
+router.get('/:Userid/Event/:Eventid',ctrlHome.getEvent);
+router.post('/:Userid',ctrlHome.createEvent); 
+router.put('/:Userid/Event/:Eventid',ctrlHome.updateEvent);
+router.delete('/:Userid/Event/:Eventid',ctrlHome.deleteEvent);
+router.get('/:Userid/Event/:Eventid/comments/:Commentid',ctrlHome.getComment);
+router.post('/:Userid/Event/:Eventid/comments', ctrlHome.createComment);
+router.put('/:Userid/Event/:Eventid/comments/:Commentid',ctrlHome.updateComment); 
+router.delete('/:Userid/Event/:Eventid/comments/:Commentid',ctrlHome.deleteComment);
 
 //Sign_up 
 //router.get('/login/:Userid', ctrlSignup.getUser); 

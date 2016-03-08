@@ -7,7 +7,6 @@ res.json(content);
 };
 module.exports.getUser = function (req, res) { 
 //get the user
-//console.log( Loc.findById("56d358b977f5dbf585b491c8")); 
 if (req.params && req.params.Userid) {
     Loc
       .findById(req.params.Userid)
@@ -30,7 +29,7 @@ if (req.params && req.params.Userid) {
   //console.log(location); 
     console.log('No locationid specified');
     sendJsonResponse(res, 404, {
-      "message": "No locationid in request"
+      "message": "No User id in request"
     });
   }
 };
@@ -46,13 +45,13 @@ console.log(req.body);
 	Followers: 0,
 	Following: 0, 
 	Events: [] 
-  }, function(err, location) {
+  }, function(err, user) {
     if (err) {
-      console.log(err);
+      //console.log(err);
       sendJsonResponse(res, 400, err);
     } else {
-      console.log(location);
-      sendJsonResponse(res, 201, location);
+      console.log(user);
+      sendJsonResponse(res, 201, user);
     }
   });
 //sendJsonResponse(res, 200, {"status" : "success"});

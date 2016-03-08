@@ -2,7 +2,6 @@ var mongoose = require('mongoose')
 var Schema = mongoose.Schema; 
 
 var eventSchema = new Schema({ 
-
 Description:  {type: String, required: true},
 Location:  {type: String, required: true}, 
 Pictures: [String], 
@@ -14,7 +13,6 @@ coords: { type: [Number], index: '2dsphere'}
 });
 
 var usersSchema = new Schema({ 
-
 name: {type: String, required: true}, 
 email: {type: String, required: true},
 pw: {type: String, required: true},
@@ -29,7 +27,6 @@ Events: [eventSchema]
 
 // var messageSchema 
 // var groupSchema 
-
 
 mongoose.model('Event', eventSchema); 
 mongoose.model('Profile', usersSchema);
