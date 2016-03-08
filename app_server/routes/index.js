@@ -9,12 +9,13 @@ var ctrlOthers = require('../controllers/others');
 
 /* Locations pages*/
 router.get('/', ctrlLocations.home);
+router.get('/signup', ctrlLocations.signup)
 router.get('/login', ctrlLocations.login);
 router.get('/search', ctrlLocations.search);
 router.get('/profile', ctrlLocations.profile);
-router.get('/followers', ctrlLocations.followers);
 router.get('/event', ctrlLocations.event);
-router.get('/createevent', ctrlLocations.createevent);
+router.get('/followers', ctrlLocations.followers);
+router.get('/index', ctrlLocations.index);
 //!!
 
 /* Other pages */

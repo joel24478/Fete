@@ -1,5 +1,6 @@
 extends layout
-
+block append head 
+  link(rel='stylesheet', href='/stylesheets/signup.css')
 block content
   #banner.page-header
     .row
@@ -31,7 +32,9 @@ block content
                 i.glyphicon.glyphicon-lock
               input#password.form-control(type='password', name='password', placeholder='Password')
             .form-group
-              .col-sm-12.controls
+              .col-md-8.controls
                 button.btn.btn-primary.pull-right(type='submit', href='#')
                   i.glyphicon.glyphicon-log-in
                   |  SignUp
+              .col-md-8
+                a(href='/login') Or Login

@@ -5,14 +5,3 @@ function initMap() {
         zoom: 8
     });
 }
-
-function getPost() {
-    var node = document.getElementById("template").cloneNode(true);
-    node.id = "post"; // Don't forget :)
-    // modify node contents with DOM manipulation
-    document.getElementById("post").appendChild(node);
-}
-
-function placePost() {
-
-}
