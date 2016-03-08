@@ -1,6 +1,8 @@
 var mongoose = require('mongoose') 
 var Schema = mongoose.Schema; 
 
+//need the name of the event
+//need the start and end time of the event; 
 var eventSchema = new Schema({ 
 Description:  {type: String, required: true},
 Location:  {type: String, required: true}, 

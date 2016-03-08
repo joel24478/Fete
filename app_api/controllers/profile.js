@@ -5,8 +5,8 @@ var sendJsonResponse = function(res, status, content) {
 res.status(status);
 res.json(content);
 };
+
 //Get all user's events 
-//Get a specific event
 module.exports.getMyEvents = function (req, res) { 
 // get user, then find the event
 if (req.params && req.params.Userid) {
@@ -28,15 +28,8 @@ if (req.params && req.params.Userid) {
           }
           if (user.Events && user.Events.length > 0) {
 		  var response = []; 
-            /*event = user.Events.id(req.params.Eventid);
-            if (!event) {
-              sendJsonResponse(res, 404, {
-                "message": "Event id not found"
-              });
-            } else {*/
 			  user.Events.forEach( function(doc){
-			  response.push({//json object that will be returned
-                //event: {
+			  response.push({//json array object will be returned
 				  description: doc.Description,
                   location: doc.Location,
                   pictures: doc.Pictures, 
@@ -46,12 +39,9 @@ if (req.params && req.params.Userid) {
                   public: doc.Public, 
                   coords: doc.coords,
                   id: req.params.Eventid
-                //}
 				});
-                //review: review
               });
               sendJsonResponse(res, 200, response);
-            //}
           } else {
             sendJsonResponse(res, 404, {
               "message": "No Events found"
