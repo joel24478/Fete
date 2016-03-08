@@ -1,13 +1,7 @@
 extends layout
-
+block append head 
+  link(rel='stylesheet', href='/stylesheets/login.css')
 block content
-  #banner.page-header
-    .row
-      .col-lg-6
-       h1.topPageTitle #{title}
-         p
-           h3 #{pageTitle}
-  .container
     #loginbox.mainbox.col-md-6.col-md-offset-3.col-sm-6.col-sm-offset-3
       .panel.panel-default
         .panel-heading

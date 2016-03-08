@@ -1,4 +1,7 @@
 extends layout
+block append head
+  link(rel='stylesheet', href='/stylesheets/profile.css')
+  script(src='/javascripts/profile.js')
 //Got it from
 //http://bootsnipp.com/snippets/featured/flat-user-profile-interface-ui
 block content
@@ -14,13 +17,14 @@ block content
         .row.purplebg.white
           .col-md-6.no-pad
             .user-pad
-              h3 Welcome back, #{username}
-              h4.white
-                span.glyphicon.glyphicon-globe
-                |  #{location}
-              h4.white
-                span.glyphicon.glyphicon-twitter
-                |  #{twitter}
+              div#profileClip
+                h3 #{username}
+                h4.white
+                  span.glyphicon.glyphicon-globe
+                  |  #{location}
+                h4.white
+                  span.glyphicon.glyphicon-twitter
+                  |  #{twitter}
               button.btn.btn-labeled.btn-info(type='button', href='#')
                 span.btn-label
                   span.glyphicon.glyphicon-pencil
@@ -36,7 +40,7 @@ block content
             h3 FOLLOWING
             h4.white #{followingCount}
           .col-md-4.user-pad.text-center
-            h3 APPRECIATIONS
+            h3 ATTENDED
             h4.white #{reputationCount}
       .col-md-1.user-menu-btns
         #responsive.btn-group-vertical.square
